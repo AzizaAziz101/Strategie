@@ -15,6 +15,7 @@ import {
   Clock,
   Compass,
   Copy,
+  CornerDownLeft,
   Database,
   Layers,
   ListChecks,
@@ -305,7 +306,9 @@ const FOUNDATION_STEPS: ChecklistItem[] = [
 
 const EMPTY_CHECKS: Record<string, boolean> = {};
 const EMPTY_COUNTS: Record<string, number> = {};
+const EMPTY_NOTES: Note[] = [];
 const EMPTY_LEAD = { firma: "", branche: "", ort: "", name: "" };
+type Note = { id: string; text: string; createdAt: number };
 type Lead = typeof EMPTY_LEAD;
 
 /* -------------------------------------------------------------------------- */
@@ -1097,24 +1100,121 @@ function GeneratorSection() {
 /* -------------------------------------------------------------------------- */
 
 function NotesSection() {
-  const [notes, setNotes] = useLocalStorage("notes", "");
+  const [notes, setNotes] = useLocalStorage("notes-list", EMPTY_NOTES);
+  const [legacyNotes] = useLocalStorage("notes", "");
+  const [draft, setDraft] = useState("");
+  const hydrated = useHydrated();
+
+  useEffect(() => {
+    if (hydrated && notes.length === 0 && legacyNotes.trim()) {
+      setNotes([{ id: crypto.randomUUID(), text: legacyNotes.trim(), createdAt: Date.now() }]);
+    }
+  }, [hydrated, legacyNotes, notes.length, setNotes]);
+
+  const addNote = () => {
+    const text = draft.trim();
+    if (!text) return;
+    setNotes((previous) => [
+      { id: crypto.randomUUID(), text, createdAt: Date.now() },
+      ...previous,
+    ]);
+    setDraft("");
+  };
+
+  const removeNote = (id: string) => {
+    setNotes((previous) => previous.filter((note) => note.id !== id));
+  };
+
   return (
     <section id="notizen">
       <SectionHeading
         icon={NotebookPen}
-        eyebrow="Scratchpad"
+        eyebrow="Dein Ideenraum"
         title="Notizen"
-        description="Einwände aus Gesprächen, Ideen, offene Leads. Wird automatisch in diesem Browser gespeichert."
+        description="Gedanken festhalten, damit du dich auf das Wesentliche konzentrieren kannst."
+        action={
+          <span className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1.5 text-sm text-zinc-400">
+            {notes.length} {notes.length === 1 ? "Eintrag" : "Einträge"}
+          </span>
+        }
       />
-      <Card className="p-0">
-        <textarea
-          value={notes}
-          onChange={(event) => setNotes(event.target.value)}
-          placeholder="Was habe ich heute gelernt? Welcher Einwand kam im Gespräch?"
-          rows={8}
-          className="block w-full resize-y rounded-2xl bg-transparent px-6 py-5 text-sm leading-relaxed text-zinc-200 outline-none placeholder:text-zinc-600 focus:ring-2 focus:ring-inset focus:ring-indigo-500/30"
-        />
-      </Card>
+      <div className="grid gap-5 lg:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.8fr)]">
+        <Card className="relative overflow-hidden border-indigo-500/20 bg-gradient-to-br from-indigo-500/[0.08] via-zinc-900/80 to-zinc-900/50 p-5 sm:p-7">
+          <div className="mb-5 flex items-center gap-3">
+            <span className="grid size-10 place-items-center rounded-xl bg-indigo-500/15 text-indigo-300 ring-1 ring-indigo-400/20">
+              <NotebookPen className="size-5" aria-hidden />
+            </span>
+            <div>
+              <h3 className="font-medium text-zinc-100">Schnell festhalten</h3>
+              <p className="text-sm text-zinc-400">Ein Gedanke genügt.</p>
+            </div>
+          </div>
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              addNote();
+            }}
+            className="flex flex-col gap-3 sm:flex-row"
+          >
+            <label className="sr-only" htmlFor="note-draft">Neue Notiz</label>
+            <input
+              id="note-draft"
+              value={draft}
+              onChange={(event) => setDraft(event.target.value)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" && (event.nativeEvent.isComposing || event.keyCode === 229)) {
+                  event.preventDefault();
+                }
+              }}
+              placeholder="Idee, Gesprächsnotiz oder nächster Schritt …"
+              className="min-w-0 flex-1 rounded-xl border border-zinc-700/80 bg-[#0A0A0C]/70 px-4 py-3 text-sm text-zinc-100 outline-none transition placeholder:text-zinc-500 hover:border-zinc-600 focus:border-indigo-400/70 focus:ring-2 focus:ring-indigo-500/20"
+            />
+            <button
+              type="submit"
+              disabled={!draft.trim()}
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-indigo-500 px-5 py-3 text-sm font-medium text-white shadow-lg shadow-indigo-950/30 transition hover:bg-indigo-400 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40"
+            >
+              <Plus className="size-4" aria-hidden />
+              Hinzufügen
+            </button>
+          </form>
+          <p className="mt-3 flex items-center gap-1.5 text-xs text-zinc-500">
+            <CornerDownLeft className="size-3.5" aria-hidden />
+            Mit Enter speichern · automatisch in diesem Browser gesichert
+          </p>
+        </Card>
+
+        <div className="flex flex-col gap-3" aria-live="polite" aria-relevant="additions removals">
+          {notes.length === 0 ? (
+            <div className="flex min-h-48 flex-col items-center justify-center rounded-2xl border border-dashed border-zinc-800 bg-zinc-900/30 px-6 py-8 text-center">
+              <span className="grid size-11 place-items-center rounded-full bg-zinc-800/70 text-zinc-400">
+                <NotebookPen className="size-5" aria-hidden />
+              </span>
+              <p className="mt-3 text-sm font-medium text-zinc-300">Noch keine Notizen</p>
+              <p className="mt-1 max-w-xs text-xs leading-relaxed text-zinc-500">Dein erster Eintrag erscheint hier – und das Eingabefeld ist direkt wieder frei.</p>
+            </div>
+          ) : (
+            notes.map((note) => (
+              <article key={note.id} className="group rounded-2xl border border-zinc-800 bg-zinc-900/60 p-4 transition hover:border-zinc-700 sm:p-5">
+                <div className="flex items-start justify-between gap-3">
+                  <p className="min-w-0 flex-1 whitespace-pre-wrap break-words text-sm leading-relaxed text-zinc-200">{note.text}</p>
+                  <button
+                    type="button"
+                    onClick={() => removeNote(note.id)}
+                    aria-label={`Notiz löschen: ${note.text.slice(0, 48)}`}
+                    className="shrink-0 rounded-lg px-2 py-1 text-xs text-zinc-500 opacity-100 transition hover:bg-red-500/10 hover:text-red-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 sm:opacity-0 sm:group-hover:opacity-100"
+                  >
+                    Löschen
+                  </button>
+                </div>
+                <time className="mt-3 block text-xs text-zinc-500" dateTime={new Date(note.createdAt).toISOString()}>
+                  {new Date(note.createdAt).toLocaleString("de-DE", { dateStyle: "medium", timeStyle: "short" })}
+                </time>
+              </article>
+            ))
+          )}
+        </div>
+      </div>
     </section>
   );
 }
