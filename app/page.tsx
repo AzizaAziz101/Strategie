@@ -146,7 +146,7 @@ const STACK: StackCard[] = [
     tag: "Bereits bezahlt & aktiv",
     accent: "indigo",
     visual: {
-      src: "/website-assets/development-workflow.png",
+      src: "/website-assets/development-workflow.webp",
       alt: "Code-Editor und UI-Komponenten im Entwicklungsworkflow",
     },
     items: [
@@ -162,7 +162,7 @@ const STACK: StackCard[] = [
     accent: "emerald",
     wide: true,
     visual: {
-      src: "/website-assets/digital-infrastructure.png",
+      src: "/website-assets/digital-infrastructure.webp",
       alt: "Digitale Infrastruktur als vernetzte, leuchtende UI-Panels",
     },
     items: [
@@ -184,7 +184,7 @@ const STACK: StackCard[] = [
     accent: "cyan",
     wide: true,
     visual: {
-      src: "/website-assets/mobile-booking.png",
+      src: "/website-assets/mobile-booking.webp",
       alt: "Mobiles Terminbuchungs-Interface auf einem Smartphone",
     },
     items: [
@@ -217,7 +217,7 @@ const PAKETE: Paket[] = [
     unit: "netto, einmalig",
     effort: "Ziel: max. 10 Std.",
     visual: {
-      src: "/website-assets/website-homepage.png",
+      src: "/website-assets/website-homepage.webp",
       alt: "Modernes Website-Layout als digitaler Neustart für ein lokales Unternehmen",
     },
     features: [
@@ -236,7 +236,7 @@ const PAKETE: Paket[] = [
     unit: "netto, einmalig",
     effort: "Ziel: max. 18 Std.",
     visual: {
-      src: "/website-assets/growth-insights.png",
+      src: "/website-assets/growth-insights.webp",
       alt: "Wachstums-Dashboard mit Funnel und Leistungsdiagrammen",
     },
     features: [
@@ -254,7 +254,7 @@ const PAKETE: Paket[] = [
     unit: "pro Monat",
     effort: "Ziel: MRR aufbauen",
     visual: {
-      src: "/website-assets/dashboard-analytics.png",
+      src: "/website-assets/dashboard-analytics.webp",
       alt: "Analytics-Dashboard für laufende Betreuung und Website-Performance",
     },
     highlight: true,
