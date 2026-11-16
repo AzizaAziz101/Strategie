@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   useCallback,
   useEffect,
@@ -123,12 +124,18 @@ const NAV = [
 
 const DAILY_GOAL = 5;
 
+type WebsiteVisual = {
+  src: string;
+  alt: string;
+};
+
 type StackCard = {
   icon: LucideIcon;
   title: string;
   tag: string;
   accent: "indigo" | "emerald" | "cyan";
   wide?: boolean;
+  visual: WebsiteVisual;
   items: { name: string; note: string }[];
 };
 
@@ -138,6 +145,10 @@ const STACK: StackCard[] = [
     title: "Core Stack",
     tag: "Bereits bezahlt & aktiv",
     accent: "indigo",
+    visual: {
+      src: "/website-assets/development-workflow.png",
+      alt: "Code-Editor und UI-Komponenten im Entwicklungsworkflow",
+    },
     items: [
       { name: "VS Code + Claude", note: "Entwicklung & Texte" },
       { name: "GitHub", note: "Code & Basis-Template" },
@@ -150,6 +161,10 @@ const STACK: StackCard[] = [
     tag: "Verkaufsargument",
     accent: "emerald",
     wide: true,
+    visual: {
+      src: "/website-assets/digital-infrastructure.png",
+      alt: "Digitale Infrastruktur als vernetzte, leuchtende UI-Panels",
+    },
     items: [
       {
         name: "Lokale Schriften",
@@ -168,6 +183,10 @@ const STACK: StackCard[] = [
     tag: "Free Tiers",
     accent: "cyan",
     wide: true,
+    visual: {
+      src: "/website-assets/mobile-booking.png",
+      alt: "Mobiles Terminbuchungs-Interface auf einem Smartphone",
+    },
     items: [
       { name: "Sanity", note: "Kunden pflegen Inhalte selbst" },
       { name: "Cloudflare Email Routing", note: "Professionelle E-Mail-Adressen" },
@@ -184,6 +203,7 @@ type Paket = {
   price: string;
   unit: string;
   effort: string;
+  visual: WebsiteVisual;
   features: string[];
   highlight?: boolean;
 };
@@ -196,6 +216,10 @@ const PAKETE: Paket[] = [
     price: "950 – 1.450 €",
     unit: "netto, einmalig",
     effort: "Ziel: max. 10 Std.",
+    visual: {
+      src: "/website-assets/website-homepage.png",
+      alt: "Modernes Website-Layout als digitaler Neustart für ein lokales Unternehmen",
+    },
     features: [
       "Bis zu 5 Seiten",
       "Mobil-optimiert",
@@ -211,6 +235,10 @@ const PAKETE: Paket[] = [
     price: "1.900 – 2.500 €",
     unit: "netto, einmalig",
     effort: "Ziel: max. 18 Std.",
+    visual: {
+      src: "/website-assets/growth-insights.png",
+      alt: "Wachstums-Dashboard mit Funnel und Leistungsdiagrammen",
+    },
     features: [
       "Alles aus Paket 1",
       "Sanity CMS für eigene Inhalte",
@@ -225,6 +253,10 @@ const PAKETE: Paket[] = [
     price: "39 – 59 €",
     unit: "pro Monat",
     effort: "Ziel: MRR aufbauen",
+    visual: {
+      src: "/website-assets/dashboard-analytics.png",
+      alt: "Analytics-Dashboard für laufende Betreuung und Website-Performance",
+    },
     highlight: true,
     features: [
       "Hosting über meine Vercel-Pro-Infrastruktur",
@@ -356,6 +388,20 @@ function Card({
     >
       {children}
     </div>
+  );
+}
+
+function CardVisual({ visual }: { visual: WebsiteVisual }) {
+  return (
+    <figure className="relative mt-5 aspect-[16/9] overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
+      <Image
+        src={visual.src}
+        alt={visual.alt}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+        className="object-cover"
+      />
+    </figure>
   );
 }
 
@@ -524,7 +570,7 @@ function FocusTracker() {
         <output
           aria-live="polite"
           className={cx(
-            "font-mono text-6xl font-semibold tabular-nums tracking-tighter transition-colors",
+            "font-sans text-6xl font-semibold tabular-nums tracking-tighter transition-colors",
             goalReached ? "text-emerald-400" : "text-zinc-50",
           )}
         >
@@ -679,6 +725,7 @@ function StackSection() {
                 </div>
                 <span className="text-xs text-zinc-500">{card.tag}</span>
               </div>
+              <CardVisual visual={card.visual} />
               <ul
                 className={cx(
                   "mt-5 grid gap-x-6 gap-y-3",
@@ -755,6 +802,7 @@ function PaketeSection() {
             <h3 className="mt-5 text-lg font-medium text-zinc-50">
               „{paket.name}“
             </h3>
+            <CardVisual visual={paket.visual} />
             <p className="mt-3 font-mono text-3xl font-semibold tracking-tight text-zinc-50">
               {paket.price}
             </p>
