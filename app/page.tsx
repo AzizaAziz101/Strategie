@@ -184,8 +184,8 @@ const STACK: StackCard[] = [
     accent: "cyan",
     wide: true,
     visual: {
-      src: "/website-assets/mobile-booking.webp",
-      alt: "Mobiles Terminbuchungs-Interface auf einem Smartphone",
+      src: "/website-assets/cms-management.webp",
+      alt: "Klare CMS-Oberfläche mit Seitenstruktur und visueller Inhaltsverwaltung",
     },
     items: [
       { name: "Sanity", note: "Kunden pflegen Inhalte selbst" },
@@ -391,14 +391,29 @@ function Card({
   );
 }
 
-function CardVisual({ visual }: { visual: WebsiteVisual }) {
+function CardVisual({
+  visual,
+  compact = false,
+}: {
+  visual: WebsiteVisual;
+  compact?: boolean;
+}) {
   return (
-    <figure className="relative mt-5 aspect-[16/9] overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
+    <figure
+      className={cx(
+        "relative mt-5 aspect-[16/9] overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950",
+        compact && "mx-auto w-4/5 max-w-lg",
+      )}
+    >
       <Image
         src={visual.src}
         alt={visual.alt}
         fill
-        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+        sizes={
+          compact
+            ? "(max-width: 40rem) 80vw, 32rem"
+            : "(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+        }
         className="object-cover"
       />
     </figure>
@@ -725,7 +740,7 @@ function StackSection() {
                 </div>
                 <span className="text-xs text-zinc-500">{card.tag}</span>
               </div>
-              <CardVisual visual={card.visual} />
+              <CardVisual visual={card.visual} compact />
               <ul
                 className={cx(
                   "mt-5 grid gap-x-6 gap-y-3",
