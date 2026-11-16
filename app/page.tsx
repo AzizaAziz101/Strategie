@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   useCallback,
   useEffect,
@@ -17,6 +18,9 @@ import {
   Copy,
   CornerDownLeft,
   Database,
+  Download,
+  Film,
+  Image as ImageIcon,
   Layers,
   ListChecks,
   Mail,
@@ -117,8 +121,18 @@ const NAV = [
   { id: "pakete", label: "Pakete" },
   { id: "akquise", label: "Akquise" },
   { id: "generator", label: "Generator" },
+  { id: "website-assets", label: "Website-Medien" },
   { id: "fundament", label: "Fundament" },
   { id: "notizen", label: "Notizen" },
+];
+
+const WEBSITE_ASSETS = [
+  { title: "Analytics Dashboard", src: "/website-assets/dashboard-analytics.png", alt: "Dunkles Analytics-Dashboard mit violetten Diagrammen" },
+  { title: "Mobile Terminbuchung", src: "/website-assets/mobile-booking.png", alt: "Smartphone mit modernem Terminbuchungs-Interface" },
+  { title: "Website Interface", src: "/website-assets/website-homepage.png", alt: "Modernes Website-Layout auf einem Desktop-Display" },
+  { title: "Development Workflow", src: "/website-assets/development-workflow.png", alt: "Code-Editor und UI-Komponenten in einem Entwicklungsworkflow" },
+  { title: "Growth Insights", src: "/website-assets/growth-insights.png", alt: "Wachstums-Dashboard mit Funnel und Diagrammen" },
+  { title: "Digitale Infrastruktur", src: "/website-assets/digital-infrastructure.png", alt: "Abstrakte digitale Architektur mit leuchtenden UI-Panels" },
 ];
 
 const DAILY_GOAL = 5;
@@ -524,7 +538,7 @@ function FocusTracker() {
         <output
           aria-live="polite"
           className={cx(
-            "font-mono text-6xl font-semibold tabular-nums tracking-tighter transition-colors",
+            "font-sans text-6xl font-semibold tabular-nums tracking-tighter transition-colors",
             goalReached ? "text-emerald-400" : "text-zinc-50",
           )}
         >
@@ -1096,6 +1110,82 @@ function GeneratorSection() {
 }
 
 /* -------------------------------------------------------------------------- */
+/*  Website-Medien                                                            */
+/* -------------------------------------------------------------------------- */
+
+function WebsiteAssetsSection() {
+  return (
+    <section id="website-assets">
+      <SectionHeading
+        icon={ImageIcon}
+        eyebrow="Zum Verwenden & Herunterladen"
+        title="Tech- & UI-Visuals"
+        description="Sechs passende Motive und ein kurzes Showreel für deine Website – im abgestimmten Dark-Tech-Look."
+        action={
+          <span className="rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1.5 text-sm text-zinc-400">
+            6 Bilder · 1 Video
+          </span>
+        }
+      />
+
+      <Card className="mb-5 overflow-hidden p-4 sm:p-5">
+        <div className="mb-4 flex items-center gap-2 text-sm font-medium text-zinc-200">
+          <Film className="size-4 text-indigo-300" aria-hidden />
+          Tech UI Showreel
+          <span className="text-xs font-normal text-zinc-500">12 Sekunden · 720p</span>
+        </div>
+        <video
+          controls
+          playsInline
+          preload="metadata"
+          poster="/website-assets/dashboard-analytics.png"
+          className="aspect-video w-full rounded-xl bg-black"
+          aria-label="Kurzes Tech- und UI-Showreel mit sechs passenden Website-Motiven"
+        >
+          <source src="/website-assets/tech-ui-showreel.mp4" type="video/mp4" />
+          Dein Browser unterstützt dieses Videoformat nicht.
+        </video>
+        <a
+          href="/website-assets/tech-ui-showreel.mp4"
+          download
+          className="mt-3 inline-flex min-h-10 items-center gap-2 rounded-lg border border-zinc-800 px-3 py-2 text-sm text-zinc-300 transition hover:border-zinc-700 hover:bg-zinc-800"
+        >
+          <Download className="size-4" aria-hidden />
+          Video herunterladen
+        </a>
+      </Card>
+
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {WEBSITE_ASSETS.map((asset) => (
+          <article key={asset.src} className="group overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/50 transition hover:border-zinc-700">
+            <a href={asset.src} target="_blank" rel="noreferrer" className="relative block aspect-video overflow-hidden bg-zinc-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo-400" aria-label={`Bild in voller Größe öffnen: ${asset.title}`}>
+              <Image
+                src={asset.src}
+                alt={asset.alt}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover transition duration-500 group-hover:scale-[1.03]"
+              />
+            </a>
+            <div className="flex items-center justify-between gap-3 p-4">
+              <h3 className="truncate text-sm font-medium text-zinc-200">{asset.title}</h3>
+              <a
+                href={asset.src}
+                download
+                aria-label={`Bild herunterladen: ${asset.title}`}
+                className="grid size-9 shrink-0 place-items-center rounded-lg text-zinc-400 transition hover:bg-zinc-800 hover:text-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+              >
+                <Download className="size-4" aria-hidden />
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
 /*  Notizen                                                                   */
 /* -------------------------------------------------------------------------- */
 
@@ -1248,6 +1338,7 @@ export default function Page() {
         </section>
 
         <GeneratorSection />
+        <WebsiteAssetsSection />
 
         <section id="fundament">
           <SectionHeading
