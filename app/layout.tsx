@@ -2,10 +2,10 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Resonanz Studio – Webentwicklung für Unternehmen vor Ort",
+  title: "Resonanz web digital – Webentwicklung für Unternehmen vor Ort",
   description:
     "Klare, rechtssichere Websites für lokale Unternehmen und Selbstständige. Moderne digitale Präsenz, faire Festpreise und persönliche Begleitung.",
-  applicationName: "Resonanz Studio",
+  applicationName: "Resonanz web digital",
   robots: { index: true, follow: true },
 };
 

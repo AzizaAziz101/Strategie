@@ -140,11 +140,11 @@ export default function Home() {
     <main id="oben" className="min-h-screen overflow-hidden bg-[#09090b] text-zinc-100">
       <header className="sticky top-0 z-30 border-b border-white/[0.06] bg-[#09090b]/80 backdrop-blur-xl">
         <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-5 sm:px-8">
-          <a href="#oben" className="group flex items-center gap-3" aria-label="Resonanz Studio – zur Startseite">
+          <a href="#oben" className="group flex items-center gap-3" aria-label="Resonanz web digital – zur Startseite">
             <span className="grid size-9 place-items-center rounded-xl border border-indigo-300/20 bg-indigo-300/[0.08] text-indigo-200 transition-colors duration-500 group-hover:bg-indigo-300/[0.14]">
               <CircleDot size={18} strokeWidth={1.5} aria-hidden="true" />
             </span>
-            <span className="text-sm font-medium tracking-wide text-zinc-100">Resonanz<span className="text-zinc-500"> Studio</span></span>
+            <span className="text-sm font-medium tracking-wide text-zinc-100">Resonanz<span className="text-zinc-500"> web digital</span></span>
           </a>
           <nav aria-label="Hauptnavigation" className="hidden items-center gap-8 md:flex">
             <a href="#haltung" className="text-sm text-zinc-400 transition-colors duration-500 hover:text-zinc-100">Haltung</a>
@@ -276,7 +276,7 @@ export default function Home() {
 
       <footer className="border-t border-white/[0.06] px-5 py-7 sm:px-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 text-xs text-zinc-600 sm:flex-row sm:items-center sm:justify-between">
-          <a href="#oben" className="flex items-center gap-2 text-zinc-400 transition-colors duration-500 hover:text-zinc-200"><CircleDot size={14} aria-hidden="true" /> Resonanz Studio</a>
+          <a href="#oben" className="flex items-center gap-2 text-zinc-400 transition-colors duration-500 hover:text-zinc-200"><CircleDot size={14} aria-hidden="true" /> Resonanz web digital</a>
           <p>Digitale Präsenz, die Menschen zusammenbringt.</p>
           <span>Mit Ruhe. Mit Klarheit. Gemeinsam.</span>
         </div>
