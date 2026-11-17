@@ -160,12 +160,12 @@ export default function Home() {
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_76%_42%,rgba(99,102,241,0.10),transparent_40%),radial-gradient(ellipse_at_16%_90%,rgba(16,185,129,0.06),transparent_32%)]" />
         <div className="relative mx-auto grid min-h-[680px] max-w-7xl items-center gap-12 px-5 py-24 sm:px-8 lg:grid-cols-[1.1fr_.9fr] lg:py-32">
           <div className="max-w-3xl">
-            <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/[0.09] bg-[#0f1115]/70 px-3.5 py-2 text-xs text-zinc-300 backdrop-blur-md">
-              <span className="relative flex size-2"><span className="absolute inline-flex size-full rounded-full bg-emerald-300/30" /><span className="relative inline-flex size-2 rounded-full bg-emerald-300" /></span>
-              Digitale Präsenz für Menschen vor Ort
+            <div className="hero-badge mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/[0.09] bg-[#0f1115]/70 px-3.5 py-2 text-xs text-zinc-300 backdrop-blur-md">
+              <span className="relative flex size-2 hero-status-indicator"><span className="absolute inline-flex size-full rounded-full bg-emerald-300/30" /><span className="relative inline-flex size-2 rounded-full bg-emerald-300" /></span>
+              <span className="hero-badge-label">Digitale Präsenz für Menschen vor Ort</span>
             </div>
-            <h1 className="max-w-3xl text-balance text-5xl font-medium leading-[1.08] tracking-[-0.055em] text-white sm:text-6xl lg:text-[4.6rem]">
-              Gute Arbeit verdient es, <span className="bg-gradient-to-r from-indigo-200 via-indigo-100 to-emerald-200 bg-clip-text text-transparent">gesehen</span> zu werden.
+            <h1 className="hero-heading max-w-3xl text-balance text-5xl font-medium leading-[1.08] tracking-[-0.055em] text-white sm:text-6xl lg:text-[4.6rem]">
+              Gute Arbeit verdient es, <span className="hero-gradient-text bg-gradient-to-r from-indigo-200 via-indigo-100 to-emerald-200 bg-clip-text text-transparent">gesehen</span> zu werden.
             </h1>
             <p className="mt-7 max-w-2xl text-pretty text-base leading-8 text-zinc-400 sm:text-lg">
               Ich begleite lokale Unternehmen und Selbstständige dabei, ihre Werte und Leistungen in eine klare, rechtssichere und moderne digitale Präsenz zu übersetzen – ohne Technik-Stress und auf Augenhöhe.
