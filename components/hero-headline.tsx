@@ -13,6 +13,7 @@ const FRAMES_PER_LETTER = 3;
 
 function useDecodedText(target: string) {
   const [text, setText] = useState(target);
+  const [isDecoding, setIsDecoding] = useState(false);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -22,6 +23,7 @@ function useDecodedText(target: string) {
     const totalFrames = target.length * FRAMES_PER_LETTER;
 
     const timeoutId = window.setTimeout(() => {
+      setIsDecoding(true);
       intervalId = window.setInterval(() => {
         frame += 1;
         const resolved = Math.floor(frame / FRAMES_PER_LETTER);
@@ -34,6 +36,7 @@ function useDecodedText(target: string) {
         if (frame >= totalFrames) {
           window.clearInterval(intervalId);
           setText(target);
+          setIsDecoding(false);
         }
       }, FRAME_MS);
     }, DECODE_DELAY_MS);
@@ -44,7 +47,7 @@ function useDecodedText(target: string) {
     };
   }, [target]);
 
-  return text;
+  return { text, isDecoding };
 }
 
 function Word({ children, index }: { children: string; index: number }) {
@@ -56,7 +59,7 @@ function Word({ children, index }: { children: string; index: number }) {
 }
 
 export function HeroHeadline() {
-  const decoded = useDecodedText(HIGHLIGHT);
+  const { text: decoded, isDecoding } = useDecodedText(HIGHLIGHT);
   const highlightIndex = LEADING_WORDS.length;
 
   return (
@@ -70,11 +73,13 @@ export function HeroHeadline() {
             <Word index={i}>{word}</Word>{" "}
           </span>
         ))}
-        <span className="hero-word hero-highlight relative inline-block whitespace-nowrap" style={{ animationDelay: `${highlightIndex * 90}ms` }}>
+        <span
+          className="hero-highlight relative inline-block whitespace-nowrap"
+          data-state={isDecoding ? "decoding" : "resolved"}
+          style={{ animationDelay: `${highlightIndex * 90}ms` }}
+        >
           <span className="invisible">{HIGHLIGHT}</span>
-          <span className="absolute inset-0 bg-gradient-to-r from-indigo-200 via-indigo-100 to-emerald-200 bg-clip-text text-transparent">
-            {decoded}
-          </span>
+          <span className="hero-highlight-text absolute inset-0">{decoded}</span>
         </span>{" "}
         {TRAILING_WORDS.map((word, i) => (
           <span key={word}>
