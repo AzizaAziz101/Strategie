@@ -20,6 +20,56 @@ section[id] {
   scroll-margin-top: 5.5rem;
 }
 
+.hero-word {
+  animation: hero-word-materialize 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-highlight {
+  animation-name: hero-word-materialize, hero-highlight-glow;
+  animation-duration: 900ms, 4s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1), ease-in-out;
+  animation-iteration-count: 1, infinite;
+  animation-fill-mode: both, none;
+}
+
+.hero-word:not(.hero-highlight) {
+  background-image: linear-gradient(100deg, #fff 0 42%, #c7d2fe 48%, #a7f3d0 50%, #fff 56% 100%);
+  background-size: 300% 100%;
+  background-position: 100% 0;
+  background-clip: text;
+  color: transparent;
+  animation-name: hero-word-materialize, hero-headline-scan;
+  animation-duration: 900ms, 6s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1), ease-in-out;
+  animation-iteration-count: 1, infinite;
+  animation-fill-mode: both, none;
+}
+
+@keyframes hero-word-materialize {
+  from {
+    opacity: 0;
+    transform: translateY(0.35em);
+    filter: blur(12px);
+    letter-spacing: 0.08em;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+    letter-spacing: inherit;
+  }
+}
+
+@keyframes hero-highlight-glow {
+  0%, 100% { filter: drop-shadow(0 0 0 rgb(165 180 252 / 0)); }
+  50% { filter: drop-shadow(0 0 18px rgb(165 180 252 / 0.45)); }
+}
+
+@keyframes hero-headline-scan {
+  0%, 20% { background-position: 100% 0; }
+  45%, 100% { background-position: 0% 0; }
+}
+
 ::selection {
   background: rgb(129 140 248 / 0.32);
 }
@@ -27,6 +77,11 @@ section[id] {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .hero-word,
+  .hero-highlight {
+    animation: none !important;
   }
 
   *,
