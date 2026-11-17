@@ -7,7 +7,10 @@ const LEADING_WORDS = ["Gute", "Arbeit", "verdient", "es,"];
 const HIGHLIGHT = "gesehen";
 const TRAILING_WORDS = ["zu", "werden."];
 const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&*+<>/";
-const DECODE_DELAY_MS = 650;
+const INITIAL_DECODE_DELAY_MS = 650;
+// Matches the moment the first CSS light scan (hero-headline-scan) crosses "gesehen".
+const FIRST_WAVE_DECODE_DELAY_MS = 1900;
+const DECODE_DELAYS_MS = [INITIAL_DECODE_DELAY_MS, FIRST_WAVE_DECODE_DELAY_MS];
 const FRAME_MS = 45;
 const FRAMES_PER_LETTER = 3;
 
@@ -17,12 +20,12 @@ function useDecodedText(target: string) {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    let frame = 0;
-    let intervalId: number | undefined;
     const totalFrames = target.length * FRAMES_PER_LETTER;
+    const intervalIds: number[] = [];
 
-    const timeoutId = window.setTimeout(() => {
-      intervalId = window.setInterval(() => {
+    const decode = () => {
+      let frame = 0;
+      const intervalId = window.setInterval(() => {
         frame += 1;
         const resolved = Math.floor(frame / FRAMES_PER_LETTER);
         setText(
@@ -36,11 +39,14 @@ function useDecodedText(target: string) {
           setText(target);
         }
       }, FRAME_MS);
-    }, DECODE_DELAY_MS);
+      intervalIds.push(intervalId);
+    };
+
+    const timeoutIds = DECODE_DELAYS_MS.map((delay) => window.setTimeout(decode, delay));
 
     return () => {
-      window.clearTimeout(timeoutId);
-      if (intervalId) window.clearInterval(intervalId);
+      timeoutIds.forEach((id) => window.clearTimeout(id));
+      intervalIds.forEach((id) => window.clearInterval(id));
     };
   }, [target]);
 
