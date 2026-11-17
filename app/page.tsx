@@ -12,6 +12,7 @@ import {
   Zap,
 } from "lucide-react";
 import { HeroHeadline } from "@/components/hero-headline";
+import { Reveal } from "@/components/reveal";
 
 const packages = [
   {
@@ -125,9 +126,9 @@ function NetworkArtwork() {
   );
 }
 
-function SectionLabel({ children }: { children: string }) {
+function SectionLabel({ children, className = "" }: { children: string; className?: string }) {
   return (
-    <p className="mb-5 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-zinc-500">
+    <p className={`mb-5 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-zinc-500 ${className}`}>
       <span className="h-px w-7 bg-indigo-300/50" />
       {children}
     </p>
@@ -199,48 +200,53 @@ export default function Home() {
 
       <section id="haltung" className="scroll-mt-24 px-5 py-24 sm:px-8 sm:py-32">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.7fr_1.3fr] lg:gap-24">
-          <div><SectionLabel>Meine Haltung</SectionLabel><p className="text-sm text-zinc-500">Ein gutes digitales Fundament beginnt nicht mit Technik. Sondern mit Menschen.</p></div>
-          <div className="max-w-3xl">
+          <Reveal><SectionLabel>Meine Haltung</SectionLabel><p className="text-sm text-zinc-500">Ein gutes digitales Fundament beginnt nicht mit Technik. Sondern mit Menschen.</p></Reveal>
+          <Reveal className="max-w-3xl" delay={120}>
             <h2 className="text-balance text-3xl font-medium leading-tight tracking-[-0.04em] text-zinc-100 sm:text-4xl">Jedes Unternehmen ist ein Teil eines größeren <span className="text-zinc-500">Miteinanders.</span></h2>
             <p className="mt-6 text-pretty text-base leading-8 text-zinc-400">Ein Handwerksbetrieb, eine Praxis oder eine persönliche Beratung verändert den Alltag anderer Menschen – oft leise, aber ganz wesentlich. Wenn gute Arbeit sichtbar wird, entstehen neue Verbindungen und Vertrauen kann wachsen.</p>
             <p className="mt-4 text-pretty text-base leading-8 text-zinc-400">Technologie sollte dabei kein zusätzlicher Lärm sein. Ich nutze sie, um Wege einfacher zu machen und Ihnen den Rücken freizuhalten: für das, was Sie am liebsten tun – Ihre Arbeit mit und für Menschen.</p>
             <div className="mt-9 flex items-center gap-3 text-sm text-zinc-300"><span className="grid size-9 place-items-center rounded-xl border border-emerald-200/10 bg-emerald-200/[0.06] text-emerald-200"><HeartHandshake size={17} strokeWidth={1.5} aria-hidden="true" /></span> Digitale Klarheit. Menschliche Nähe.</div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section id="vorteile" className="scroll-mt-24 border-y border-white/[0.06] bg-[#0d0f13] px-5 py-24 sm:px-8 sm:py-28">
         <div className="mx-auto max-w-7xl">
-          <SectionLabel>Was Ihre Website auszeichnet</SectionLabel>
-          <div className="mb-12 grid gap-5 md:grid-cols-[1fr_.7fr] md:items-end">
-            <h2 className="max-w-2xl text-balance text-3xl font-medium tracking-[-0.04em] text-zinc-100 sm:text-4xl">Technik, die sich im Alltag <span className="text-zinc-500">gut anfühlt.</span></h2>
-            <p className="max-w-lg text-pretty text-sm leading-7 text-zinc-400">Ein gutes digitales Zuhause ist verlässlich, verständlich und schnell erreichbar – ohne dass Sie sich selbst um jedes Detail kümmern müssen.</p>
-          </div>
+          <Reveal>
+            <SectionLabel>Was Ihre Website auszeichnet</SectionLabel>
+            <div className="mb-12 grid gap-5 md:grid-cols-[1fr_.7fr] md:items-end">
+              <h2 className="max-w-2xl text-balance text-3xl font-medium tracking-[-0.04em] text-zinc-100 sm:text-4xl">Technik, die sich im Alltag <span className="text-zinc-500">gut anfühlt.</span></h2>
+              <p className="max-w-lg text-pretty text-sm leading-7 text-zinc-400">Ein gutes digitales Zuhause ist verlässlich, verständlich und schnell erreichbar – ohne dass Sie sich selbst um jedes Detail kümmern müssen.</p>
+            </div>
+          </Reveal>
           <div className="grid gap-4 md:grid-cols-3">
-            {principles.map(({ icon: Icon, number, title, text, tone }) => (
-              <article key={number} className="group rounded-2xl border border-white/[0.08] bg-zinc-900/40 p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-white/[0.14] hover:bg-zinc-900/60 sm:p-7">
+            {principles.map(({ icon: Icon, number, title, text, tone }, index) => (
+              <Reveal key={number} delay={index * 120}>
+              <article className="group h-full rounded-2xl border border-white/[0.08] bg-zinc-900/40 p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-white/[0.14] hover:bg-zinc-900/60 sm:p-7">
                 <div className="flex items-center justify-between"><span className={`grid size-11 place-items-center rounded-xl border border-white/[0.06] ${tone === "emerald" ? "bg-emerald-300/[0.07] text-emerald-200" : tone === "amber" ? "bg-amber-200/[0.07] text-amber-200" : "bg-indigo-300/[0.07] text-indigo-200"}`}><Icon size={19} strokeWidth={1.5} aria-hidden="true" /></span><span className="font-mono text-xs text-zinc-600">{number}</span></div>
                 <h3 className="mt-8 text-lg font-medium text-zinc-100">{title}</h3>
                 <p className="mt-3 text-sm leading-7 text-zinc-400">{text}</p>
               </article>
+              </Reveal>
             ))}
           </div>
-          <div className="mt-5 flex flex-col gap-4 rounded-2xl border border-white/[0.07] bg-white/[0.02] p-5 sm:flex-row sm:items-center sm:justify-between sm:px-7">
+          <Reveal className="mt-5 flex flex-col gap-4 rounded-2xl border border-white/[0.07] bg-white/[0.02] p-5 sm:flex-row sm:items-center sm:justify-between sm:px-7" delay={200}>
             <p className="max-w-2xl text-sm leading-7 text-zinc-400">Moderne, schlanke Webtechnik arbeitet im Hintergrund – damit Ihre Seite auf dem Smartphone ebenso klar und schnell ist wie im persönlichen Gespräch.</p>
             <span className="shrink-0 rounded-full border border-emerald-200/10 bg-emerald-200/[0.05] px-3.5 py-2 text-xs text-emerald-100/80">Weniger Ballast. Mehr Verbindung.</span>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section id="pakete" className="scroll-mt-24 px-5 py-24 sm:px-8 sm:py-32">
         <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <Reveal className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div><SectionLabel>Zusammenarbeit</SectionLabel><h2 className="max-w-2xl text-balance text-3xl font-medium tracking-[-0.04em] text-zinc-100 sm:text-4xl">Ein klarer Rahmen. <span className="text-zinc-500">Keine Überraschungen.</span></h2></div>
             <p className="max-w-md text-sm leading-7 text-zinc-400">Drei faire Wege, die zu Ihrem Bedarf passen. Wir klären den Umfang gemeinsam, bevor wir beginnen – zum vereinbarten Preis.</p>
-          </div>
+          </Reveal>
           <div className="mt-12 grid gap-4 lg:grid-cols-3">
-            {packages.map(({ number, icon: Icon, name, price, detail, intro, features, highlight }) => (
-              <article key={number} className={`relative flex flex-col rounded-2xl border p-6 backdrop-blur-md transition-all duration-500 sm:p-7 ${highlight ? "border-indigo-200/20 bg-indigo-300/[0.055] shadow-[0_0_60px_-38px_rgba(129,140,248,0.4)]" : "border-white/[0.08] bg-zinc-900/40 hover:border-white/[0.14]"}`}>
+            {packages.map(({ number, icon: Icon, name, price, detail, intro, features, highlight }, index) => (
+              <Reveal key={number} delay={index * 120}>
+              <article className={`relative flex h-full flex-col rounded-2xl border p-6 backdrop-blur-md transition-all duration-500 sm:p-7 ${highlight ? "border-indigo-200/20 bg-indigo-300/[0.055] shadow-[0_0_60px_-38px_rgba(129,140,248,0.4)]" : "border-white/[0.08] bg-zinc-900/40 hover:border-white/[0.14]"}`}>
                 {highlight && <span className="absolute right-6 top-6 rounded-full border border-indigo-200/15 bg-indigo-200/[0.07] px-2.5 py-1 text-[10px] font-medium uppercase tracking-wider text-indigo-100/80">Mehr Eigenständigkeit</span>}
                 <div className="flex items-center gap-3"><span className="grid size-10 place-items-center rounded-xl border border-white/[0.07] bg-white/[0.03] text-zinc-300"><Icon size={18} strokeWidth={1.5} aria-hidden="true" /></span><span className="font-mono text-xs text-zinc-600">{number}</span></div>
                 <h3 className="mt-7 text-xl font-medium tracking-tight text-zinc-100">{name}</h3>
@@ -251,6 +257,7 @@ export default function Home() {
                 </ul>
                 <a href="#kontakt" className="group mt-8 inline-flex items-center justify-between rounded-xl border border-white/[0.09] bg-white/[0.03] px-4 py-3 text-sm text-zinc-200 transition-all duration-500 hover:border-indigo-200/25 hover:bg-indigo-200/[0.06]">Paket besprechen <ArrowRight size={15} className="transition-transform duration-500 group-hover:translate-x-1" aria-hidden="true" /></a>
               </article>
+              </Reveal>
             ))}
           </div>
           <p className="mt-5 text-xs leading-6 text-zinc-600">Die genannten Preise sind Richtwerte ab. Den konkreten Umfang und Festpreis vereinbaren wir transparent vor Projektbeginn.</p>
@@ -261,13 +268,13 @@ export default function Home() {
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl border border-white/[0.09] bg-[#0f1115] px-6 py-16 sm:px-12 sm:py-20">
           <div className="absolute -right-16 -top-40 size-96 rounded-full bg-indigo-400/[0.08] blur-3xl" />
           <div className="absolute -bottom-48 left-1/4 size-96 rounded-full bg-emerald-300/[0.05] blur-3xl" />
-          <div className="relative mx-auto max-w-2xl text-center">
-            <span className="mx-auto grid size-12 place-items-center rounded-2xl border border-white/[0.08] bg-white/[0.03] text-indigo-200"><MoveUpRight size={20} strokeWidth={1.5} aria-hidden="true" /></span>
-            <SectionLabel>Der erste Schritt</SectionLabel>
+          <Reveal className="relative mx-auto max-w-2xl text-center">
+            <span className="gentle-float mx-auto mb-8 grid size-12 place-items-center rounded-2xl border border-white/[0.08] bg-white/[0.03] text-indigo-200"><MoveUpRight size={20} strokeWidth={1.5} aria-hidden="true" /></span>
+            <SectionLabel className="justify-center">Der erste Schritt</SectionLabel>
             <h2 className="text-balance text-3xl font-medium tracking-[-0.04em] text-zinc-100 sm:text-4xl">Lassen Sie uns gemeinsam herausfinden, <span className="text-zinc-500">was zu Ihnen passt.</span></h2>
             <p className="mx-auto mt-5 max-w-xl text-pretty text-sm leading-7 text-zinc-400">Ganz ohne Verkaufsdruck: Wir sprechen über Ihre Arbeit, Ihre Wünsche und darüber, wie eine klare digitale Präsenz Ihnen den Alltag erleichtern kann.</p>
             <p className="mt-7 text-xs text-zinc-500">Ein erstes Gespräch ist unverbindlich. Sie entscheiden in Ruhe, ob und wie wir weitergehen.</p>
-          </div>
+          </Reveal>
         </div>
       </section>
 
