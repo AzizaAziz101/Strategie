@@ -44,24 +44,6 @@ section[id] {
   color: transparent;
 }
 
-.hero-highlight::after {
-  position: absolute;
-  right: 0;
-  bottom: 0.02em;
-  left: 0;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, transparent, #a5b4fc, #6ee7b7, transparent);
-  content: "";
-  opacity: 0;
-  transform: scaleX(0);
-  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1), opacity 600ms ease;
-}
-
-.hero-highlight[data-state="resolved"]::after {
-  opacity: 0.8;
-  transform: scaleX(1);
-}
 
 .hero-word:not(.hero-highlight) {
   background-image: linear-gradient(100deg, #fff 0 42%, #c7d2fe 48%, #a7f3d0 50%, #fff 56% 100%);
@@ -119,10 +101,6 @@ section[id] {
   .hero-word,
   .hero-highlight {
     animation: none !important;
-  }
-
-  .hero-highlight::after {
-    transition: none;
   }
 
   *,
