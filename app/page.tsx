@@ -11,6 +11,7 @@ import {
   Sparkles,
   Zap,
 } from "lucide-react";
+import { HeroHeadline } from "@/components/hero-headline";
 
 const packages = [
   {
@@ -164,9 +165,7 @@ export default function Home() {
               <span className="relative flex size-2"><span className="absolute inline-flex size-full rounded-full bg-emerald-300/30" /><span className="relative inline-flex size-2 rounded-full bg-emerald-300" /></span>
               Digitale Präsenz für Menschen vor Ort
             </div>
-            <h1 className="max-w-3xl text-balance text-5xl font-medium leading-[1.08] tracking-[-0.055em] text-white sm:text-6xl lg:text-[4.6rem]">
-              Gute Arbeit verdient es, <span className="bg-gradient-to-r from-indigo-200 via-indigo-100 to-emerald-200 bg-clip-text text-transparent">gesehen</span> zu werden.
-            </h1>
+            <HeroHeadline />
             <p className="mt-7 max-w-2xl text-pretty text-base leading-8 text-zinc-400 sm:text-lg">
               Ich begleite lokale Unternehmen und Selbstständige dabei, ihre Werte und Leistungen in eine klare, rechtssichere und moderne digitale Präsenz zu übersetzen – ohne Technik-Stress und auf Augenhöhe.
             </p>
