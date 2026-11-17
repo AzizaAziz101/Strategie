@@ -29,19 +29,13 @@ section[id] {
 }
 
 .hero-highlight-text {
-  color: #c7d2fe;
-}
-
-.hero-highlight[data-state="decoding"] .hero-highlight-text {
-  color: #a5b4fc;
-  font-variant-numeric: tabular-nums;
-}
-
-.hero-highlight[data-state="resolved"] .hero-highlight-text {
-  background-image: linear-gradient(90deg, #c7d2fe, #e0e7ff 45%, #a7f3d0);
+  background-image: linear-gradient(100deg, #fff 0 42%, #c7d2fe 48%, #a7f3d0 50%, #fff 56% 100%);
+  background-size: 300% 100%;
+  background-position: 100% 0;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+  animation: hero-headline-scan 6s ease-in-out infinite;
 }
 
 
@@ -99,7 +93,8 @@ section[id] {
   }
 
   .hero-word,
-  .hero-highlight {
+  .hero-highlight,
+  .hero-highlight-text {
     animation: none !important;
   }
 
