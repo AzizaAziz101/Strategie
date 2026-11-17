@@ -277,6 +277,10 @@ export default function Home() {
           <a href="#oben" className="flex items-center gap-2 text-zinc-400 transition-colors duration-500 hover:text-zinc-200"><CircleDot size={14} aria-hidden="true" /> Resonanz web digital</a>
           <p>Digitale Präsenz, die Menschen zusammenbringt.</p>
           <span>Mit Ruhe. Mit Klarheit. Gemeinsam.</span>
+          <nav aria-label="Rechtliches" className="flex items-center gap-5 text-zinc-500">
+            <a href="/impressum" className="transition-colors hover:text-zinc-200">Impressum</a>
+            <a href="/datenschutz" className="transition-colors hover:text-zinc-200">Datenschutz</a>
+          </nav>
         </div>
       </footer>
     </main>
