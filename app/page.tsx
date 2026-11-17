@@ -186,8 +186,6 @@ export default function Home() {
           </div>
           <div className="relative hidden min-h-[390px] items-center justify-center lg:flex">
             <div className="absolute size-[26rem] rounded-full border border-white/[0.06]" />
-            <div className="absolute size-[19rem] rounded-full border border-white/[0.07]" />
-            <div className="absolute size-[12rem] rounded-full border border-white/[0.08]" />
             <div className="relative grid size-28 place-items-center rounded-[2rem] border border-indigo-200/20 bg-[#13151b]/80 text-indigo-100 shadow-[0_0_90px_-28px_rgba(129,140,248,0.42)] backdrop-blur-xl">
               <Sparkles size={34} strokeWidth={1.2} aria-hidden="true" />
             </div>
