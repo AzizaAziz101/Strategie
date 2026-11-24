@@ -2,17 +2,18 @@ import {
   ArrowDown,
   ArrowRight,
   Check,
-  CircleDot,
   Compass,
   HeartHandshake,
   Layers3,
-  LockKeyhole,
   MoveUpRight,
   Sparkles,
-  Zap,
 } from "lucide-react";
 import { HeroHeadline } from "@/components/hero-headline";
 import { Reveal } from "@/components/reveal";
+import { AblaufDialog } from "@/components/ablauf-dialog";
+import { Facts } from "@/components/facts";
+import { BrandMark } from "@/components/brand-mark";
+import { References } from "@/components/references";
 
 const packages = [
   {
@@ -62,30 +63,6 @@ const packages = [
       "Kleine Anpassungen, wenn sich etwas verändert",
     ],
     highlight: false,
-  },
-];
-
-const principles = [
-  {
-    icon: LockKeyhole,
-    number: "01",
-    title: "Rechtssicherheit, von Anfang an",
-    text: "Datenschutz wird mitgedacht: ohne unnötiges Tracking, mit lokal eingebundenen Schriften und einer klaren, sorgfältig aufgebauten Seitenstruktur.",
-    tone: "emerald",
-  },
-  {
-    icon: Zap,
-    number: "02",
-    title: "Schnell da, wenn es darauf ankommt",
-    text: "Eine moderne, schlanke Umsetzung lädt auch unterwegs zügig. So finden Menschen den Weg zu Ihnen – genau dann, wenn sie Ihre Unterstützung suchen.",
-    tone: "amber",
-  },
-  {
-    icon: HeartHandshake,
-    number: "03",
-    title: "Zusammenarbeit auf Augenhöhe",
-    text: "Wir sprechen verständlich, entscheiden gemeinsam und halten den Rahmen transparent. Sie wissen, was entsteht – und was es kostet.",
-    tone: "indigo",
   },
 ];
 
@@ -140,15 +117,13 @@ export default function Home() {
     <main id="oben" className="min-h-screen overflow-hidden bg-[#09090b] text-zinc-100">
       <header className="sticky top-0 z-30 border-b border-white/[0.06] bg-[#09090b]/80 backdrop-blur-xl">
         <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-5 sm:px-8">
-          <a href="#oben" className="group flex items-center gap-3" aria-label="Resonanz web digital – zur Startseite">
-            <span className="grid size-9 place-items-center rounded-xl border border-indigo-300/20 bg-indigo-300/[0.08] text-indigo-200 transition-colors duration-500 group-hover:bg-indigo-300/[0.14]">
-              <CircleDot size={18} strokeWidth={1.5} aria-hidden="true" />
-            </span>
-            <span className="text-sm font-medium tracking-wide text-zinc-100">Resonanz<span className="text-zinc-500"> web digital</span></span>
+          <a href="#oben" className="flex items-center gap-3" aria-label="hoeft.digital – zur Startseite">
+            <BrandMark />
+            <span className="text-sm font-medium tracking-wide text-zinc-100">hoeft<span className="text-zinc-500">.digital</span></span>
           </a>
           <nav aria-label="Hauptnavigation" className="hidden items-center gap-8 md:flex">
             <a href="#haltung" className="text-sm text-zinc-400 transition-colors duration-500 hover:text-zinc-100">Haltung</a>
-            <a href="#vorteile" className="text-sm text-zinc-400 transition-colors duration-500 hover:text-zinc-100">Was Sie erwartet</a>
+            <a href="#referenzen" className="text-sm text-zinc-400 transition-colors duration-500 hover:text-zinc-100">Referenzen</a>
             <a href="#pakete" className="text-sm text-zinc-400 transition-colors duration-500 hover:text-zinc-100">Zusammenarbeit</a>
           </nav>
           <a href="#kontakt" className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2.5 text-xs font-medium text-zinc-200 transition-all duration-500 hover:border-indigo-300/30 hover:bg-indigo-300/[0.08]">
@@ -164,11 +139,11 @@ export default function Home() {
           <div className="max-w-3xl">
             <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/[0.09] bg-[#0f1115]/70 px-3.5 py-2 text-xs text-zinc-300 backdrop-blur-md">
               <span className="relative flex size-2"><span className="absolute inline-flex size-full rounded-full bg-emerald-300/30" /><span className="relative inline-flex size-2 rounded-full bg-emerald-300" /></span>
-              Digitale Präsenz für Menschen vor Ort
+              Webentwicklungsunternehmen in Berlin
             </div>
             <HeroHeadline />
             <p className="mt-7 max-w-2xl text-pretty text-base leading-8 text-zinc-400 sm:text-lg">
-              Ich begleite lokale Unternehmen und Selbstständige dabei, ihre Werte und Leistungen in eine klare, rechtssichere und moderne digitale Präsenz zu übersetzen – ohne Technik-Stress und auf Augenhöhe.
+              Ich begleite lokale Unternehmen und Selbstständige dabei, ihre Werte und Leistungen in eine klare, rechtssichere und moderne digitale Präsenz zu übersetzen – persönlich, verständlich und auf Augenhöhe.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <a href="#kontakt" className="group inline-flex items-center gap-3 rounded-full bg-zinc-100 px-5 py-3.5 text-sm font-medium text-zinc-950 transition-all duration-500 hover:bg-white hover:shadow-[0_0_36px_-12px_rgba(199,210,254,0.6)]">
@@ -210,28 +185,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="vorteile" className="scroll-mt-24 border-y border-white/[0.06] bg-[#0d0f13] px-5 py-24 sm:px-8 sm:py-28">
+      <section id="referenzen" className="scroll-mt-24 border-y border-white/[0.06] bg-[#0d0f13] px-5 py-24 sm:px-8 sm:py-28">
         <div className="mx-auto max-w-7xl">
           <Reveal>
-            <SectionLabel>Was Ihre Website auszeichnet</SectionLabel>
+            <SectionLabel>Referenzen</SectionLabel>
             <div className="mb-12 grid gap-5 md:grid-cols-[1fr_.7fr] md:items-end">
-              <h2 className="max-w-2xl text-balance text-3xl font-medium tracking-[-0.04em] text-zinc-100 sm:text-4xl">Technik, die sich im Alltag <span className="text-zinc-500">gut anfühlt.</span></h2>
-              <p className="max-w-lg text-pretty text-sm leading-7 text-zinc-400">Ein gutes digitales Zuhause ist verlässlich, verständlich und schnell erreichbar – ohne dass Sie sich selbst um jedes Detail kümmern müssen.</p>
+              <h2 className="max-w-2xl text-balance text-3xl font-medium tracking-[-0.04em] text-zinc-100 sm:text-4xl">Gute Arbeit, <span className="text-zinc-500">sichtbar gemacht.</span></h2>
+              <p className="max-w-lg text-pretty text-sm leading-7 text-zinc-400">Zwei fiktive Beispielprojekte aus ganz unterschiedlichen Branchen – mit demselben Anspruch: klar, rechtssicher und auf jedem Gerät schnell. Namen und Inhalte sind frei erfunden.</p>
             </div>
           </Reveal>
-          <div className="grid gap-4 md:grid-cols-3">
-            {principles.map(({ icon: Icon, number, title, text, tone }, index) => (
-              <Reveal key={number} delay={index * 120}>
-              <article className="group h-full rounded-2xl border border-white/[0.08] bg-zinc-900/40 p-6 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:border-white/[0.14] hover:bg-zinc-900/60 sm:p-7">
-                <div className="flex items-center justify-between"><span className={`grid size-11 place-items-center rounded-xl border border-white/[0.06] ${tone === "emerald" ? "bg-emerald-300/[0.07] text-emerald-200" : tone === "amber" ? "bg-amber-200/[0.07] text-amber-200" : "bg-indigo-300/[0.07] text-indigo-200"}`}><Icon size={19} strokeWidth={1.5} aria-hidden="true" /></span><span className="font-mono text-xs text-zinc-600">{number}</span></div>
-                <h3 className="mt-8 text-lg font-medium text-zinc-100">{title}</h3>
-                <p className="mt-3 text-sm leading-7 text-zinc-400">{text}</p>
-              </article>
-              </Reveal>
-            ))}
-          </div>
+          <References />
           <Reveal className="mt-5 flex flex-col gap-4 rounded-2xl border border-white/[0.07] bg-white/[0.02] p-5 sm:flex-row sm:items-center sm:justify-between sm:px-7" delay={200}>
-            <p className="max-w-2xl text-sm leading-7 text-zinc-400">Moderne, schlanke Webtechnik arbeitet im Hintergrund – damit Ihre Seite auf dem Smartphone ebenso klar und schnell ist wie im persönlichen Gespräch.</p>
+            <p className="max-w-2xl text-pretty text-sm leading-7 text-zinc-400"><span className="font-medium text-zinc-100">Technik, die man nicht sieht – aber spürt.</span> Schlanker, moderner Code statt schwerer Baukästen: Ihre Website lädt schnell und wirkt auf dem Smartphone so klar wie Sie im persönlichen Gespräch.</p>
             <span className="shrink-0 rounded-full border border-emerald-200/10 bg-emerald-200/[0.05] px-3.5 py-2 text-xs text-emerald-100/80">Weniger Ballast. Mehr Verbindung.</span>
           </Reveal>
         </div>
@@ -260,7 +225,8 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-          <p className="mt-5 text-xs leading-6 text-zinc-600">Die genannten Preise sind Richtwerte ab. Den konkreten Umfang und Festpreis vereinbaren wir transparent vor Projektbeginn.</p>
+          <Reveal delay={150}><AblaufDialog /></Reveal>
+          <Facts />
         </div>
       </section>
 
@@ -280,7 +246,7 @@ export default function Home() {
 
       <footer className="border-t border-white/[0.06] px-5 py-7 sm:px-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 text-xs text-zinc-600 sm:flex-row sm:items-center sm:justify-between">
-          <a href="#oben" className="flex items-center gap-2 text-zinc-400 transition-colors duration-500 hover:text-zinc-200"><CircleDot size={14} aria-hidden="true" /> Resonanz web digital</a>
+          <a href="#oben" className="flex shrink-0 items-center gap-2 whitespace-nowrap text-zinc-400 transition-colors duration-500 hover:text-zinc-200"><BrandMark size={20} /> hoeft.digital</a>
           <p>Digitale Präsenz, die Menschen zusammenbringt.</p>
           <span>Mit Ruhe. Mit Klarheit. Gemeinsam.</span>
           <nav aria-label="Rechtliches" className="flex items-center gap-5 text-zinc-500">
