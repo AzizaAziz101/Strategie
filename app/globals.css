@@ -28,11 +28,19 @@ section[id] {
 }
 
 .hero-word {
-  animation: hero-word-fade 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: hero-word-fade 1000ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .hero-highlight {
-  animation: hero-highlight-fade 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: hero-highlight-fade 850ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.first-step-headline .hero-word {
+  animation-play-state: paused, paused;
+}
+
+.reveal[data-visible] .first-step-headline .hero-word {
+  animation-play-state: running, running;
 }
 
 .hero-highlight-text {
@@ -53,8 +61,8 @@ section[id] {
   background-clip: text;
   color: transparent;
   animation-name: hero-word-fade, hero-headline-scan;
-  animation-duration: 900ms, 6s;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1), ease-in-out;
+  animation-duration: 1000ms, 6s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1), ease-in-out;
   animation-iteration-count: 1, infinite;
   animation-fill-mode: both, none;
 }
