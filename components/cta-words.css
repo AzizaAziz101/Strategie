@@ -1,20 +1,18 @@
 .cta-word {
   display: inline-block;
   opacity: 0;
-  filter: blur(8px);
-  transform: translateY(0.35em);
+  filter: blur(6px);
 }
 
 .reveal[data-visible] .cta-word {
-  animation: cta-word-in 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: cta-word-in 1.2s cubic-bezier(0.33, 1, 0.68, 1) forwards;
   animation-delay: calc(500ms + var(--i) * 110ms);
 }
 
 @keyframes cta-word-in {
   to {
     opacity: 1;
-    filter: blur(0);
-    transform: translateY(0);
+    filter: none;
   }
 }
 
@@ -23,6 +21,5 @@
     animation: none !important;
     opacity: 1;
     filter: none;
-    transform: none;
   }
 }

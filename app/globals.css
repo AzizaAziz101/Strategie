@@ -21,11 +21,11 @@ section[id] {
 }
 
 .hero-word {
-  animation: hero-word-materialize 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: hero-word-fade 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .hero-highlight {
-  animation: hero-highlight-arrive 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: hero-highlight-fade 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .hero-highlight-text {
@@ -45,36 +45,32 @@ section[id] {
   background-position: 100% 0;
   background-clip: text;
   color: transparent;
-  animation-name: hero-word-materialize, hero-headline-scan;
+  animation-name: hero-word-fade, hero-headline-scan;
   animation-duration: 900ms, 6s;
   animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1), ease-in-out;
   animation-iteration-count: 1, infinite;
   animation-fill-mode: both, none;
 }
 
-@keyframes hero-word-materialize {
+@keyframes hero-word-fade {
   from {
     opacity: 0;
-    transform: translateY(0.35em);
     filter: blur(12px);
-    letter-spacing: 0.08em;
   }
   to {
     opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
-    letter-spacing: inherit;
+    filter: none;
   }
 }
 
-@keyframes hero-highlight-arrive {
+@keyframes hero-highlight-fade {
   from {
     opacity: 0;
-    transform: translateY(0.35em);
+    filter: blur(12px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    filter: none;
   }
 }
 
