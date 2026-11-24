@@ -191,7 +191,7 @@ export default function Home() {
             <SectionLabel>Referenzen</SectionLabel>
             <div className="mb-12 grid gap-5 md:grid-cols-[1fr_.7fr] md:items-end">
               <h2 className="max-w-2xl text-balance text-3xl font-medium tracking-[-0.04em] text-zinc-100 sm:text-4xl">Gute Arbeit, <span className="text-zinc-500">sichtbar gemacht.</span></h2>
-              <p className="max-w-lg text-pretty text-sm leading-7 text-zinc-400">Zwei Beispiele, zwei ganz unterschiedliche Branchen – und derselbe Anspruch: klar, rechtssicher und auf jedem Gerät schnell.</p>
+              <p className="max-w-lg text-pretty text-sm leading-7 text-zinc-400">Zwei fiktive Beispielprojekte aus ganz unterschiedlichen Branchen – mit demselben Anspruch: klar, rechtssicher und auf jedem Gerät schnell. Namen und Inhalte sind frei erfunden.</p>
             </div>
           </Reveal>
           <References />

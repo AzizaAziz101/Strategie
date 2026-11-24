@@ -7,18 +7,15 @@ const references = [
     name: "Metallbau Meyer",
     sector: "Meisterbetrieb · Eberswalde",
     url: "https://mutnt.vercel.app",
-    domain: "mutnt.vercel.app",
     image: "/images/referenzen/meyer.webp",
-    text: "Ein Handwerksbetrieb, der für Präzision steht – und eine Website, die das auf den ersten Blick zeigt. Klare Leistungen, echte Bilder und ein Anfrageweg, der auf dem Smartphone nur einen Tipp entfernt ist.",
-    tags: ["Mobil zuerst", "Anfrage mit einem Tipp", "Klare Leistungsübersicht"],
+    text: "Ein Handwerksbetrieb, der für Präzision steht – und eine Website, die das auf den ersten Blick zeigt. Klare Leistungen, aussagekräftige Bilder und eine Struktur, die Bauherren schnell zum passenden Angebot führt.",
+    tags: ["Mobil zuerst", "Aussagekräftige Bilder", "Klare Leistungsübersicht"],
   },
   {
     name: "Sadig Ishar",
     sector: "Rechtsanwältin · Berlin",
     url: "https://sadigishar.com",
-    domain: "sadigishar.com",
     image: "/images/referenzen/sadig-ishar.webp",
-    note: "Konzeptprojekt",
     text: "Für Menschen, die sich in einer belastenden Situation schnell orientieren müssen: ruhige Gestaltung, verständliche Sprache und ein direkter Weg zur kostenlosen Ersteinschätzung.",
     tags: ["Vertrauen auf den ersten Blick", "Verständliche Sprache", "Direkter Kontakt"],
   },
@@ -27,7 +24,7 @@ const references = [
 export function References() {
   return (
     <div className="grid gap-5 md:grid-cols-2">
-      {references.map(({ name, sector, url, domain, image, note, text, tags }, index) => (
+      {references.map(({ name, sector, url, image, text, tags }, index) => (
         <Reveal key={name} delay={index * 120}>
           <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-zinc-900/40 backdrop-blur-md transition-colors duration-500 hover:border-white/[0.14]">
             <a href={url} target="_blank" rel="noopener noreferrer" className="block p-2.5 pb-0" tabIndex={-1} aria-hidden="true">
@@ -38,8 +35,6 @@ export function References() {
                     <span className="size-2 rounded-full bg-white/10" />
                     <span className="size-2 rounded-full bg-white/10" />
                   </span>
-                  <span className="mx-auto rounded-md bg-white/[0.04] px-3 py-0.5 font-mono text-[10px] text-zinc-500">{domain}</span>
-                  <span className="w-[30px]" />
                 </div>
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <Image
@@ -55,7 +50,7 @@ export function References() {
             <div className="flex flex-1 flex-col border-t border-white/[0.06] p-6 sm:p-7">
               <div className="flex min-h-5 flex-wrap items-center gap-x-3 gap-y-1 text-xs text-zinc-500">
                 <span>{sector}</span>
-                {note && <span className="rounded-full border border-white/[0.08] px-2 py-px text-[10px] leading-4 uppercase tracking-wider text-zinc-500">{note}</span>}
+                <span className="rounded-full border border-white/[0.08] px-2 py-px text-[10px] leading-4 uppercase tracking-wider text-zinc-500">Fiktives Beispiel</span>
               </div>
               <h3 className="mt-2 text-lg font-medium text-zinc-100">{name}</h3>
               <p className="mt-3 text-pretty text-sm leading-7 text-zinc-400">{text}</p>
