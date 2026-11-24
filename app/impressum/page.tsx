@@ -13,7 +13,7 @@ export default function ImpressumPage() {
       <header className="border-b border-white/[0.06] px-5 py-5 sm:px-8">
         <div className="mx-auto flex max-w-5xl items-center justify-between">
           <Link href="/" className="flex items-center gap-3 text-sm font-medium tracking-wide text-zinc-100">
-            <BrandMark size={32} className="rounded-lg" />
+            <BrandMark size={32} />
             <span>hoeft <span className="text-zinc-500">digital</span></span>
           </Link>
           <Link href="/" className="text-sm text-zinc-400 transition-colors hover:text-zinc-100">
