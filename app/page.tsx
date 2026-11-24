@@ -139,11 +139,11 @@ export default function Home() {
           <div className="max-w-3xl">
             <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/[0.09] bg-[#0f1115]/70 px-3.5 py-2 text-xs text-zinc-300 backdrop-blur-md">
               <span className="relative flex size-2"><span className="absolute inline-flex size-full rounded-full bg-emerald-300/30" /><span className="relative inline-flex size-2 rounded-full bg-emerald-300" /></span>
-              Digitale Präsenz für Menschen vor Ort
+              Webentwicklungsunternehmen in Berlin
             </div>
             <HeroHeadline />
             <p className="mt-7 max-w-2xl text-pretty text-base leading-8 text-zinc-400 sm:text-lg">
-              Ich begleite lokale Unternehmen und Selbstständige dabei, ihre Werte und Leistungen in eine klare, rechtssichere und moderne digitale Präsenz zu übersetzen – ohne Technik-Stress und auf Augenhöhe.
+              Ich begleite lokale Unternehmen und Selbstständige dabei, ihre Werte und Leistungen in eine klare, rechtssichere und moderne digitale Präsenz zu übersetzen – persönlich, verständlich und auf Augenhöhe.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <a href="#kontakt" className="group inline-flex items-center gap-3 rounded-full bg-zinc-100 px-5 py-3.5 text-sm font-medium text-zinc-950 transition-all duration-500 hover:bg-white hover:shadow-[0_0_36px_-12px_rgba(199,210,254,0.6)]">
