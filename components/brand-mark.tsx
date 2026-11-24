@@ -3,7 +3,7 @@ import Image from "next/image";
 export function BrandMark({ size = 36, className = "" }: { size?: number; className?: string }) {
   return (
     <Image
-      src="/images/hoeft-digital-mark.png"
+      src="/images/hoeft-digital-mark-v2.png"
       alt=""
       width={size}
       height={size}
