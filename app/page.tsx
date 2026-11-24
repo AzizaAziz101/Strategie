@@ -88,7 +88,7 @@ function NetworkArtwork() {
       <circle cx="620" cy="300" r="245" fill="url(#network-glow)" opacity=".25" />
       <g stroke="url(#network-line)" strokeWidth="1">
         <path d="M318 164 448 234 574 154 694 226 796 172M318 164 285 309 405 373 448 234M448 234 574 300 694 226 746 374 574 420 405 373M574 154 574 300M285 309 246 464 405 493 574 420 746 374 796 472M405 373 405 493M574 300 574 420" />
-        <path d="m694 226 102 140M448 234l-43 139m169-73 120 74" opacity=".6" />
+        <path d="m694 226 102 140M448 234l-43 139" opacity=".6" />
       </g>
       <g fill="#c7d2fe">
         <circle cx="318" cy="164" r="3" /><circle cx="448" cy="234" r="4" />
@@ -167,7 +167,6 @@ export default function Home() {
             <div className="absolute right-2 top-[18%] rounded-2xl border border-white/10 bg-[#111318]/80 px-4 py-3 text-xs text-zinc-300 shadow-xl backdrop-blur-xl"><span className="mr-2 text-emerald-300">●</span>Ihre Arbeit, sichtbar</div>
             <div className="absolute bottom-[16%] left-1 rounded-2xl border border-white/10 bg-[#111318]/80 px-4 py-3 text-xs text-zinc-300 shadow-xl backdrop-blur-xl"><span className="mr-2 text-indigo-200">●</span>Menschen, die zueinander finden</div>
             <span className="absolute left-[18%] top-[24%] size-2 rounded-full bg-indigo-200/80 shadow-[0_0_18px_4px_rgba(165,180,252,0.3)]" />
-            <span className="absolute bottom-[28%] right-[17%] size-1.5 rounded-full bg-emerald-200/80 shadow-[0_0_18px_4px_rgba(110,231,183,0.25)]" />
           </div>
         </div>
         <div className="absolute bottom-0 left-1/2 h-px w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-indigo-200/20 to-transparent" />
