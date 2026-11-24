@@ -5,6 +5,7 @@ import { BrandMark } from "@/components/brand-mark";
 export const metadata: Metadata = {
   title: "Datenschutz | hoeft.digital",
   description: "Datenschutzhinweise von hoeft.digital.",
+  alternates: { canonical: "/datenschutz" },
 };
 
 const sectionClass = "mt-10 space-y-4 text-sm leading-7 text-zinc-300";
