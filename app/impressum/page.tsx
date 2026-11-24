@@ -5,6 +5,7 @@ import { BrandMark } from "@/components/brand-mark";
 export const metadata: Metadata = {
   title: "Impressum | hoeft.digital",
   description: "Impressum von hoeft.digital – Antonio Hoeft, Berlin.",
+  alternates: { canonical: "/impressum" },
 };
 
 export default function ImpressumPage() {
