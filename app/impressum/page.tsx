@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BrandMark } from "@/components/brand-mark";
 
 export const metadata: Metadata = {
-  title: "Impressum | hoeft digital",
+  title: "Impressum | hoeft.digital",
   description: "Impressum von hoeft.digital – Antonio Hoeft, Berlin.",
 };
 
@@ -14,7 +14,7 @@ export default function ImpressumPage() {
         <div className="mx-auto flex max-w-5xl items-center justify-between">
           <Link href="/" className="flex items-center gap-3 text-sm font-medium tracking-wide text-zinc-100">
             <BrandMark size={32} />
-            <span>hoeft <span className="text-zinc-500">digital</span></span>
+            <span>hoeft<span className="text-zinc-500">.digital</span></span>
           </Link>
           <Link href="/" className="text-sm text-zinc-400 transition-colors hover:text-zinc-100">
             Zur Startseite
