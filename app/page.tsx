@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { HeroHeadline } from "@/components/hero-headline";
 import { Reveal } from "@/components/reveal";
+import { AblaufDialog } from "@/components/ablauf-dialog";
 
 const packages = [
   {
@@ -260,6 +261,7 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+          <Reveal delay={150}><AblaufDialog /></Reveal>
           <p className="mt-5 text-xs leading-6 text-zinc-600">Die genannten Preise sind Richtwerte ab. Den konkreten Umfang und Festpreis vereinbaren wir transparent vor Projektbeginn.</p>
         </div>
       </section>
