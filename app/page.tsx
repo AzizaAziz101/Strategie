@@ -237,6 +237,7 @@ export default function Home() {
             <SectionLabel className="justify-center">Der erste Schritt</SectionLabel>
             <CtaHeadline />
             <p className="mx-auto mt-5 max-w-xl text-pretty text-sm leading-7 text-zinc-400">Ganz ohne Verkaufsdruck: Wir sprechen über Ihre Arbeit, Ihre Wünsche und darüber, wie eine klare digitale Präsenz Ihnen den Alltag erleichtern kann.</p>
+            <p className="mt-6 text-pretty text-base leading-7 text-zinc-200">Schreiben Sie mir an <a href="mailto:hoeftantonio@yahoo.com" className="break-words text-indigo-200 underline decoration-white/20 underline-offset-4 transition-colors duration-500 hover:text-white">hoeftantonio@yahoo.com</a></p>
             <p className="mt-7 text-xs text-zinc-500">Ein erstes Gespräch ist unverbindlich. Sie entscheiden in Ruhe, ob und wie wir weitergehen.</p>
           </Reveal>
         </div>
