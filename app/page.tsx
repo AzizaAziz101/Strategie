@@ -231,9 +231,7 @@ export default function Home() {
       </section>
 
       <section id="kontakt" className="scroll-mt-24 px-5 pb-24 sm:px-8 sm:pb-32">
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-3xl border border-white/[0.09] bg-[#0f1115] px-6 py-16 sm:px-12 sm:py-20">
-          <div className="absolute -right-16 -top-40 size-96 rounded-full bg-indigo-400/[0.08] blur-3xl" />
-          <div className="absolute -bottom-48 left-1/4 size-96 rounded-full bg-emerald-300/[0.05] blur-3xl" />
+        <div className="first-step-panel relative mx-auto max-w-7xl overflow-hidden rounded-3xl border border-white/[0.09] px-6 py-16 sm:px-12 sm:py-20">
           <Reveal className="relative mx-auto max-w-2xl text-center">
             <span className="gentle-float mx-auto mb-8 grid size-12 place-items-center rounded-2xl border border-white/[0.08] bg-white/[0.03] text-indigo-200"><MoveUpRight size={20} strokeWidth={1.5} aria-hidden="true" /></span>
             <SectionLabel className="justify-center">Der erste Schritt</SectionLabel>
