@@ -88,7 +88,7 @@ function NetworkArtwork() {
       <circle cx="620" cy="300" r="245" fill="url(#network-glow)" opacity=".25" />
       <g stroke="url(#network-line)" strokeWidth="1">
         <path d="M318 164 448 234 574 154 694 226 796 172M318 164 285 309 405 373 448 234M448 234 574 300 694 226 746 374 574 420 405 373M574 154 574 300M285 309 246 464 405 493 574 420 746 374 796 472M405 373 405 493M574 300 574 420" />
-        <path d="m694 226 102 140M448 234l-43 139m169-73 120 74" opacity=".6" />
+        <path d="m694 226 102 140M448 234l-43 139" opacity=".6" />
       </g>
       <g fill="#c7d2fe">
         <circle cx="318" cy="164" r="3" /><circle cx="448" cy="234" r="4" />
