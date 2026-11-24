@@ -14,6 +14,7 @@ import {
 import { HeroHeadline } from "@/components/hero-headline";
 import { Reveal } from "@/components/reveal";
 import { AblaufDialog } from "@/components/ablauf-dialog";
+import { Facts } from "@/components/facts";
 
 const packages = [
   {
@@ -232,7 +233,7 @@ export default function Home() {
             ))}
           </div>
           <Reveal className="mt-5 flex flex-col gap-4 rounded-2xl border border-white/[0.07] bg-white/[0.02] p-5 sm:flex-row sm:items-center sm:justify-between sm:px-7" delay={200}>
-            <p className="max-w-2xl text-sm leading-7 text-zinc-400">Moderne, schlanke Webtechnik arbeitet im Hintergrund – damit Ihre Seite auf dem Smartphone ebenso klar und schnell ist wie im persönlichen Gespräch.</p>
+            <p className="max-w-2xl text-pretty text-sm leading-7 text-zinc-400"><span className="font-medium text-zinc-100">Technik, die man nicht sieht – aber spürt.</span> Schlanker, moderner Code statt schwerer Baukästen: Ihre Website lädt schnell und wirkt auf dem Smartphone so klar wie Sie im persönlichen Gespräch.</p>
             <span className="shrink-0 rounded-full border border-emerald-200/10 bg-emerald-200/[0.05] px-3.5 py-2 text-xs text-emerald-100/80">Weniger Ballast. Mehr Verbindung.</span>
           </Reveal>
         </div>
@@ -262,7 +263,7 @@ export default function Home() {
             ))}
           </div>
           <Reveal delay={150}><AblaufDialog /></Reveal>
-          <p className="mt-5 text-xs leading-6 text-zinc-600">Die genannten Preise sind Richtwerte ab. Den konkreten Umfang und Festpreis vereinbaren wir transparent vor Projektbeginn.</p>
+          <Facts />
         </div>
       </section>
 
