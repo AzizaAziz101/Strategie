@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowRight, CircleDot, ShieldCheck, X } from "lucide-react";
+import { ArrowRight, ShieldCheck, X } from "lucide-react";
+import { BrandMark } from "@/components/brand-mark";
 import "./ablauf-dialog.css";
 
 const steps = [
@@ -104,9 +105,7 @@ export function AblaufDialog() {
         <div className="sticky top-0 z-10 border-b border-white/[0.06] bg-[#060607]/85 backdrop-blur-xl">
           <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-5 sm:px-8">
             <span className="ablauf-fade flex items-center gap-3 text-sm font-medium tracking-wide text-zinc-100">
-              <span className="grid size-9 place-items-center rounded-xl border border-indigo-300/20 bg-indigo-300/[0.08] text-indigo-200">
-                <CircleDot size={18} strokeWidth={1.5} aria-hidden="true" />
-              </span>
+              <BrandMark />
               Ablauf
             </span>
             <button
