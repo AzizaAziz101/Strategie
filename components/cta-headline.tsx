@@ -13,7 +13,7 @@ export function CtaHeadline() {
   return (
     <h2
       aria-label={[...LEAD_WORDS, ...MUTED_WORDS].join(" ")}
-      className="text-balance text-3xl font-medium tracking-[-0.04em] text-zinc-100 sm:text-4xl"
+      className="first-step-headline text-balance text-3xl font-medium tracking-[-0.04em] text-zinc-100 sm:text-4xl"
     >
       <span aria-hidden="true">
         {LEAD_WORDS.map((word, index) => (
