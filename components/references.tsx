@@ -36,13 +36,13 @@ export function References() {
                     <span className="size-2 rounded-full bg-white/10" />
                   </span>
                 </div>
-                <div className="relative aspect-[16/10] overflow-hidden">
+                <div className="relative aspect-[16/10] overflow-hidden lg:aspect-[16/9]">
                   <Image
                     src={image}
                     alt=""
                     fill
                     sizes="(min-width: 768px) 50vw, 100vw"
-                    className="object-cover object-top opacity-90 transition-[transform,opacity] duration-[1200ms] ease-out group-hover:scale-[1.02] group-hover:opacity-100"
+                    className="object-cover object-top opacity-90 transition-transform duration-[1200ms] ease-out group-hover:scale-[1.02]"
                   />
                 </div>
               </div>
