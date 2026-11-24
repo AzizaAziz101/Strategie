@@ -52,15 +52,6 @@ section[id] {
   animation-fill-mode: both, none;
 }
 
-/* Words stay on their own compositing layer for good, so the browser never
-   re-rasterizes the text when the fade ends (that re-raster caused a visible snap). */
-.hero-word,
-.hero-highlight,
-.cta-word {
-  will-change: opacity, filter;
-  backface-visibility: hidden;
-}
-
 @keyframes hero-word-fade {
   from {
     opacity: 0;
@@ -89,9 +80,6 @@ section[id] {
 }
 
 .reveal {
-  will-change: opacity, transform, filter;
-  transform: translateY(0);
-  filter: blur(0);
   transition:
     opacity 900ms cubic-bezier(0.16, 1, 0.3, 1),
     transform 900ms cubic-bezier(0.16, 1, 0.3, 1),

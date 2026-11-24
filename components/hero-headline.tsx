@@ -5,7 +5,7 @@ const TRAILING_WORDS = ["zu", "werden."];
 
 function Word({ children, index }: { children: string; index: number }) {
   return (
-    <span className="hero-word inline-block" style={{ animationDelay: `${index * 90}ms` }}>
+    <span className="hero-word" style={{ animationDelay: `${index * 90}ms` }}>
       {children}
     </span>
   );
@@ -26,13 +26,10 @@ export function HeroHeadline() {
           </span>
         ))}
         <span
-          className="hero-highlight relative inline-block whitespace-nowrap"
+          className="hero-highlight hero-highlight-text"
           style={{ animationDelay: `${highlightIndex * 90}ms` }}
         >
-          <span className="invisible">{HIGHLIGHT}</span>
-          <span className="hero-highlight-text absolute inset-0" style={{ animationDelay: `${highlightIndex * 90}ms` }}>
-            {HIGHLIGHT}
-          </span>
+          {HIGHLIGHT}
         </span>{" "}
         {TRAILING_WORDS.map((word, i) => (
           <span key={word}>
