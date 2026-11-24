@@ -12,7 +12,7 @@
 @keyframes cta-word-in {
   to {
     opacity: 1;
-    filter: none;
+    filter: blur(0);
   }
 }
 
