@@ -4,9 +4,9 @@ import { CountUp } from "@/components/count-up";
 const facts = [
   {
     value: (
-      <span className="bg-gradient-to-r from-white via-indigo-100 to-indigo-300 bg-clip-text text-transparent">
+      <>
         <CountUp to={7} />–<CountUp to={14} />
-      </span>
+      </>
     ),
     unit: "Tage",
     title: "Bis zur Auslieferung",
@@ -28,23 +28,27 @@ const facts = [
 
 export function Facts() {
   return (
-    <section aria-label="Zahlen und Fakten" className="mt-14 border-t border-white/[0.07] sm:mt-16">
-      <div className="grid sm:grid-cols-3">
-        {facts.map(({ value, unit, title, text }, index) => (
-          <Reveal
+    <Reveal delay={200}>
+      <section
+        aria-label="Zahlen und Fakten"
+        className="mt-5 grid rounded-2xl border border-white/[0.07] bg-white/[0.02] sm:grid-cols-3"
+      >
+        {facts.map(({ value, unit, title, text }) => (
+          <div
             key={title}
-            delay={index * 100}
-            className="flex flex-col gap-2 border-b border-white/[0.07] py-8 last:border-b-0 sm:border-b-0 sm:border-l sm:px-8 sm:py-10 sm:first:border-l-0 sm:first:pl-0"
+            className="flex flex-col gap-2 border-b border-white/[0.06] px-5 py-5 last:border-b-0 sm:border-b-0 sm:border-l sm:px-6 sm:py-6 sm:first:border-l-0 lg:px-7"
           >
-            <p className="flex items-baseline gap-1.5 text-5xl font-medium tabular-nums tracking-[-0.05em] text-zinc-100 lg:text-6xl">
-              {value}
-              <small className="text-base font-normal tracking-normal text-zinc-500">{unit}</small>
+            <p className="flex items-baseline gap-1 text-xl font-medium tabular-nums tracking-[-0.03em] text-zinc-200">
+              <span>{value}</span>
+              <small className="text-[11px] font-normal tracking-normal text-zinc-500">{unit}</small>
             </p>
-            <h3 className="mt-3 text-sm font-medium text-zinc-100">{title}</h3>
-            <p className="text-sm leading-6 text-zinc-400">{text}</p>
-          </Reveal>
+            <div>
+              <h3 className="text-sm text-zinc-300">{title}</h3>
+              <p className="mt-0.5 text-xs leading-5 text-zinc-500">{text}</p>
+            </div>
+          </div>
         ))}
-      </div>
-    </section>
+      </section>
+    </Reveal>
   );
 }
