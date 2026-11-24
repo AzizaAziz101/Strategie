@@ -14,7 +14,7 @@ import { AblaufDialog } from "@/components/ablauf-dialog";
 import { Facts } from "@/components/facts";
 import { BrandMark } from "@/components/brand-mark";
 import { References } from "@/components/references";
-import "@/components/cta-sweep.css";
+import { CtaHeadline } from "@/components/cta-headline";
 
 const packages = [
   {
@@ -237,7 +237,7 @@ export default function Home() {
           <Reveal className="relative mx-auto max-w-2xl text-center">
             <span className="gentle-float mx-auto mb-8 grid size-12 place-items-center rounded-2xl border border-white/[0.08] bg-white/[0.03] text-indigo-200"><MoveUpRight size={20} strokeWidth={1.5} aria-hidden="true" /></span>
             <SectionLabel className="justify-center">Der erste Schritt</SectionLabel>
-            <h2 className="text-balance text-3xl font-medium tracking-[-0.04em] text-zinc-100 sm:text-4xl">Lassen Sie uns gemeinsam herausfinden, <span className="cta-sweep">was zu Ihnen passt.</span></h2>
+            <CtaHeadline />
             <p className="mx-auto mt-5 max-w-xl text-pretty text-sm leading-7 text-zinc-400">Ganz ohne Verkaufsdruck: Wir sprechen über Ihre Arbeit, Ihre Wünsche und darüber, wie eine klare digitale Präsenz Ihnen den Alltag erleichtern kann.</p>
             <p className="mt-7 text-xs text-zinc-500">Ein erstes Gespräch ist unverbindlich. Sie entscheiden in Ruhe, ob und wie wir weitergehen.</p>
           </Reveal>
