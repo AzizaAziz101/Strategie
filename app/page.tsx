@@ -42,10 +42,10 @@ const packages = [
     intro:
       "Mehr Raum für Ihre Leistungen – und die Freiheit, Inhalte selbst aktuell zu halten.",
     features: [
-      "Alles aus dem klaren Fundament",
+      "Alles aus Paket 1",
       "Einfaches Redaktionssystem für eigene Inhalte",
       "Terminbuchung passend zu Ihrem Arbeitsalltag",
-      "Regionale Leistungsseiten für bessere Auffindbarkeit",
+      "Bis zu 7 Seiten",
     ],
     highlight: true,
   },
