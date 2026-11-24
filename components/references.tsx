@@ -15,7 +15,7 @@ const references = [
     name: "Sadig Ishar",
     sector: "Rechtsanwältin · Berlin",
     url: "https://sadigishar.com",
-    image: "/images/referenzen/sadig-ishar.webp",
+    image: "/images/referenzen/sadig-ishar-kanzlei.webp",
     text: "Für Menschen, die sich in einer belastenden Situation schnell orientieren müssen: ruhige Gestaltung, verständliche Sprache und ein direkter Weg zur kostenlosen Ersteinschätzung.",
     tags: ["Vertrauen auf den ersten Blick", "Verständliche Sprache", "Direkter Kontakt"],
   },
